@@ -13,6 +13,7 @@ public class Arrivals extends Thread{
   public void run(){
     Random rand = new Random();
     while(true){
+      System.out.println(control.spaces);   
       if(control.capacity < control.spaces){
         System.out.println("a car arrives.");
         Arrivals(control);

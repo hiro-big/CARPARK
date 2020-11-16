@@ -3,7 +3,7 @@ public class CarparkControl  {
   int capacity;
 
   public void CarparkControl(int n){
-    spaces = n;
+    this.spaces = n;
   }
   public void arrive(){
     capacity--;
