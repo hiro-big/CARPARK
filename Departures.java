@@ -1,12 +1,27 @@
 import java.lang.Thread;
+import java.util.Random;
+import java.io.IOException;
+
 public class Departures extends Thread{
   CarparkControl control = new CarparkControl();
-  int waitTime;
+  int waitTime = 5;
 
-  public void Departures(CarparkControl ){
-
+  public void Departures(CarparkControl c){
+    c.depart();
   }
   public void run(){
+    Random rand = new Random();
+    while(true){
+      if(control.capacity > 0){
+        System.out.println("a car departs.");
+        Departures(control);
+      }
 
+      try {
+        Thread.sleep((long)(rand.nextInt(waitTime)+1)*1000); // 1〜waitTime秒でランダム待機
+      } catch (InterruptedException e){
+        e.printStackTrace( );
+      }
+    }
   }
 }
