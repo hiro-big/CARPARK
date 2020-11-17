@@ -1,17 +1,24 @@
 public class CarparkControl  {
-  int spaces;
+  private static int spaces;
   int capacity;
 
   public void CarparkControl(int n){
-    this.spaces = n;
-  }
-  public void arrive(){
-    capacity--;
-    System.out.printf("%d left\n",capacity);
+    capacity = n;
+    spaces = 0;
   }
 
-  public void depart(){
-    capacity++;
-    System.out.printf("%d left\n",capacity);
+  public int get(){
+    return spaces;
+  }
+  public synchronized void arrive(){
+    spaces--;
+    System.out.printf("%d left\n",spaces);
+    notifyAll();
+  }
+
+  public synchronized void depart(){
+    spaces++;
+    System.out.printf("%d left\n",spaces);
+    notifyAll();
   }
 }
