@@ -13,10 +13,7 @@ public class Arrivals extends Thread{
   public void run(){
     Random rand = new Random();
     while(true){
-      if(control.get() > 0){
-        System.out.println("a car arrives.");
-        Arrivals(control);
-      }
+      Arrivals(control);
 
       try {
         Thread.sleep((long)(rand.nextInt(waitTime)+1)*1000); // 1〜waitTime秒でランダム待機

@@ -9,13 +9,11 @@ public class Departures extends Thread{
   public void Departures(CarparkControl c){
     c.depart();
   }
+
   public void run(){
     Random rand = new Random();
     while(true){
-      if(control.get() < control.capacity){
-        System.out.println("a car departs.");
-        Departures(control);
-      }
+      Departures(control);
 
       try {
         Thread.sleep((long)(rand.nextInt(waitTime)+1)*1000); // 1〜waitTime秒でランダム待機

@@ -6,7 +6,6 @@ public class Carpark{
     } else {
       CarparkControl control = new CarparkControl();
       control.CarparkControl(Integer.parseInt(args[0]));
-      System.out.println(control.capacity);
     }
     Arrivals thread_arrive = new Arrivals();
     Departures thread_depart = new Departures();

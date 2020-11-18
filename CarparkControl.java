@@ -1,24 +1,28 @@
 public class CarparkControl  {
   private static int spaces;
-  int capacity;
+  private static int capacity;
 
   public void CarparkControl(int n){
     capacity = n;
-    spaces = 0;
+    spaces = 4;
+    System.out.printf("capacity:%d,spaces:%d\n",capacity,spaces);
   }
 
-  public int get(){
-    return spaces;
-  }
-  public synchronized void arrive(){
-    spaces--;
-    System.out.printf("%d left\n",spaces);
-    notifyAll();
+  synchronized void arrive(){
+    if(spaces > 0){
+      System.out.println("a car arrives.");
+      spaces--;
+      System.out.printf("%d left\n",spaces);
+      notifyAll();
+    }
   }
 
-  public synchronized void depart(){
-    spaces++;
-    System.out.printf("%d left\n",spaces);
-    notifyAll();
+  synchronized void depart(){
+    if(spaces < capacity){
+      System.out.println("a car departs.");
+      spaces++;
+      System.out.printf("%d left\n",spaces);
+      notifyAll();
+    }
   }
 }
