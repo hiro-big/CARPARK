@@ -1,10 +1,12 @@
+import java.util.Random;
 public class CarparkControl  {
   private static int spaces;
   private static int capacity;
 
   public void CarparkControl(int n){
+    Random rand = new Random();
     capacity = n;
-    spaces = 4;
+    spaces = rand.nextInt(n+1); // 0〜n
     System.out.printf("capacity:%d,spaces:%d\n",capacity,spaces);
   }
 
