@@ -1,3 +1,4 @@
+/* 2020/11/19 Nishikawa Hiroto */
 import java.util.Random;
 public class CarparkControl  {
   private static int spaces;

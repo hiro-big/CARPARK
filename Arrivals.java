@@ -1,3 +1,4 @@
+/* 2020/11/19 Nishikawa Hiroto */
 import java.lang.Thread;
 import java.util.Random;
 import java.io.IOException;
